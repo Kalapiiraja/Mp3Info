@@ -212,7 +212,7 @@ class Mp3Info {
             else $this->framesCount = ceil($audioSize / $this->__cbrFrameSize);
 
             // recalculate average bit rate in vbr case
-            if ($this->isVbr && !is_null($framesCount)) {
+            if ($this->isVbr && !empty($framesCount)) {
                 $avgFrameSize = $audioSize / $framesCount;
                 $this->bitRate = $avgFrameSize * $this->sampleRate / (1000 * $this->layerVersion == 3 ? 12 : 144);
             }
